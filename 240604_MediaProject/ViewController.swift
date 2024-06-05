@@ -124,7 +124,7 @@ class ViewController: UIViewController {
         mainIamgeView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.horizontalEdges.equalToSuperview().inset(20)
-            make.height.equalTo(mainIamgeView.snp.width).multipliedBy(1.5)
+            make.height.equalTo(mainIamgeView.snp.width).multipliedBy(1.3)
         }
         buttonStackView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(mainIamgeView.snp.horizontalEdges).inset(15)
@@ -144,7 +144,7 @@ class ViewController: UIViewController {
     }
     
     @objc func plusButtonTapped(){
-        let nextVC = JackFlixViewController()
+        let nextVC = LotteryViewController()
         navigationController?.pushViewController(nextVC, animated: true)
     }
 
