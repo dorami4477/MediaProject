@@ -144,7 +144,7 @@ class ViewController: UIViewController {
     }
     
     @objc func plusButtonTapped(){
-        let nextVC = LotteryViewController()
+        let nextVC = MovieListViewController()
         navigationController?.pushViewController(nextVC, animated: true)
     }
 
