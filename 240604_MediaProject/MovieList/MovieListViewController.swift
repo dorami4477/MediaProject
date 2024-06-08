@@ -70,7 +70,7 @@ class MovieListViewController: UIViewController {
     }
 
     func callRequest(date:String){
-        let url = "\(APIUrl.Movie)key=\(APIKey.Movie)&targetDt=\(date)"
+        let url = "\(APIUrl.movie)key=\(APIKey.movie)&targetDt=\(date)"
    
         AF.request(url).responseDecodable(of: MovieModel.self) { response in
             switch response.result{
