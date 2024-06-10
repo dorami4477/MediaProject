@@ -15,6 +15,13 @@
 		481F2E122C106D5E0074DB27 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481F2E112C106D5E0074DB27 /* extension.swift */; };
 		481F2E142C10AAC30074DB27 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481F2E132C10AAC30074DB27 /* MovieModel.swift */; };
 		481F2E162C10B31A0074DB27 /* MovieListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481F2E152C10B31A0074DB27 /* MovieListCell.swift */; };
+		483F59182C16C43D0048F839 /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483F59172C16C43D0048F839 /* TrendViewController.swift */; };
+		483F591A2C16C57E0048F839 /* TrendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483F59192C16C57E0048F839 /* TrendCell.swift */; };
+		483F591C2C16C5B10048F839 /* ReusableID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483F591B2C16C5B10048F839 /* ReusableID.swift */; };
+		483F591F2C16E1290048F839 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483F591E2C16E1290048F839 /* Movie.swift */; };
+		483F59212C16F4D50048F839 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483F59202C16F4D50048F839 /* CreditViewController.swift */; };
+		483F59232C16F7B50048F839 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483F59222C16F7B50048F839 /* Credit.swift */; };
+		483F59252C16FE500048F839 /* CreditCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483F59242C16FE500048F839 /* CreditCell.swift */; };
 		48442F682C13FAC5001CEC4D /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48442F672C13FAC5001CEC4D /* WeatherModel.swift */; };
 		48442F6A2C13FAD9001CEC4D /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48442F692C13FAD9001CEC4D /* WeatherViewController.swift */; };
 		48442F6C2C141454001CEC4D /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48442F6B2C141454001CEC4D /* WeatherCell.swift */; };
@@ -39,6 +46,13 @@
 		481F2E112C106D5E0074DB27 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		481F2E132C10AAC30074DB27 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		481F2E152C10B31A0074DB27 /* MovieListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCell.swift; sourceTree = "<group>"; };
+		483F59172C16C43D0048F839 /* TrendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendViewController.swift; sourceTree = "<group>"; };
+		483F59192C16C57E0048F839 /* TrendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendCell.swift; sourceTree = "<group>"; };
+		483F591B2C16C5B10048F839 /* ReusableID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableID.swift; sourceTree = "<group>"; };
+		483F591E2C16E1290048F839 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		483F59202C16F4D50048F839 /* CreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
+		483F59222C16F7B50048F839 /* Credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
+		483F59242C16FE500048F839 /* CreditCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCell.swift; sourceTree = "<group>"; };
 		48442F672C13FAC5001CEC4D /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		48442F692C13FAD9001CEC4D /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		48442F6B2C141454001CEC4D /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
@@ -87,6 +101,30 @@
 			path = MovieList;
 			sourceTree = "<group>";
 		};
+		483F59162C16C41F0048F839 /* Trending */ = {
+			isa = PBXGroup;
+			children = (
+				483F59172C16C43D0048F839 /* TrendViewController.swift */,
+				483F59192C16C57E0048F839 /* TrendCell.swift */,
+				483F591E2C16E1290048F839 /* Movie.swift */,
+				483F59202C16F4D50048F839 /* CreditViewController.swift */,
+				483F59222C16F7B50048F839 /* Credit.swift */,
+				483F59242C16FE500048F839 /* CreditCell.swift */,
+			);
+			path = Trending;
+			sourceTree = "<group>";
+		};
+		483F591D2C16C5E30048F839 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				481F2E092C103ABD0074DB27 /* APIKey.swift */,
+				481F2E112C106D5E0074DB27 /* extension.swift */,
+				48442F6D2C141C3E001CEC4D /* UILabel.swift */,
+				483F591B2C16C5B10048F839 /* ReusableID.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		48442F662C13F9DB001CEC4D /* Weather */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +156,8 @@
 		486F35B12C0F152E0009C21E /* 240604_MediaProject */ = {
 			isa = PBXGroup;
 			children = (
+				483F591D2C16C5E30048F839 /* Helpers */,
+				483F59162C16C41F0048F839 /* Trending */,
 				48442F662C13F9DB001CEC4D /* Weather */,
 				481F2E0E2C1068E80074DB27 /* MovieList */,
 				481F2E082C103A680074DB27 /* Lottery */,
@@ -129,9 +169,6 @@
 				486F35BD2C0F15300009C21E /* LaunchScreen.storyboard */,
 				486F35C02C0F15300009C21E /* Info.plist */,
 				486F35C92C0F22470009C21E /* JackFlixViewController.swift */,
-				481F2E092C103ABD0074DB27 /* APIKey.swift */,
-				481F2E112C106D5E0074DB27 /* extension.swift */,
-				48442F6D2C141C3E001CEC4D /* UILabel.swift */,
 			);
 			path = 240604_MediaProject;
 			sourceTree = "<group>";
@@ -218,19 +255,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				483F591F2C16E1290048F839 /* Movie.swift in Sources */,
+				483F59182C16C43D0048F839 /* TrendViewController.swift in Sources */,
+				483F59252C16FE500048F839 /* CreditCell.swift in Sources */,
 				481F2E162C10B31A0074DB27 /* MovieListCell.swift in Sources */,
 				48442F6A2C13FAD9001CEC4D /* WeatherViewController.swift in Sources */,
 				48442F6E2C141C3E001CEC4D /* UILabel.swift in Sources */,
 				481F2E142C10AAC30074DB27 /* MovieModel.swift in Sources */,
+				483F591C2C16C5B10048F839 /* ReusableID.swift in Sources */,
+				483F59212C16F4D50048F839 /* CreditViewController.swift in Sources */,
 				48442F732C141F68001CEC4D /* WeatherImgCell.swift in Sources */,
 				486F35B72C0F152E0009C21E /* ViewController.swift in Sources */,
 				48442F6C2C141454001CEC4D /* WeatherCell.swift in Sources */,
+				483F591A2C16C57E0048F839 /* TrendCell.swift in Sources */,
 				486F35B32C0F152E0009C21E /* AppDelegate.swift in Sources */,
 				486F35CA2C0F22470009C21E /* JackFlixViewController.swift in Sources */,
 				486F35B52C0F152E0009C21E /* SceneDelegate.swift in Sources */,
 				481F2E102C1069160074DB27 /* MovieListViewController.swift in Sources */,
 				481F2E0A2C103ABD0074DB27 /* APIKey.swift in Sources */,
 				481F2E072C103A430074DB27 /* LotteryViewController.swift in Sources */,
+				483F59232C16F7B50048F839 /* Credit.swift in Sources */,
 				481F2E122C106D5E0074DB27 /* extension.swift in Sources */,
 				48442F682C13FAC5001CEC4D /* WeatherModel.swift in Sources */,
 			);

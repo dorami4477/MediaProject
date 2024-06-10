@@ -144,7 +144,7 @@ class ViewController: UIViewController {
     }
     
     @objc func plusButtonTapped(){
-        let nextVC = WeatherViewController()
+        let nextVC = TrendViewController()
         navigationController?.pushViewController(nextVC, animated: true)
     }
 
