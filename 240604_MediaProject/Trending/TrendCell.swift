@@ -77,7 +77,6 @@ class TrendCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureHierarchy()
         configureLayout()
-        configureUI()
     }
     
     required init?(coder: NSCoder) {
@@ -132,8 +131,7 @@ class TrendCell: UITableViewCell {
             make.height.equalTo(seeMoreLabel.snp.height)
         }
     }
-    func configureUI(){
-    }
+
     
     func configureData(data:MovieList){
         dateLabel.text = data.releaseDateString

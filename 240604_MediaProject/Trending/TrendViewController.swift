@@ -16,9 +16,10 @@ class TrendViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         configureHierarchy()
         configureLayout()
-        configureUI()
+        configureTableView()
         callRequest()
     }
     func configureHierarchy(){
@@ -29,8 +30,7 @@ class TrendViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
-    func configureUI(){
-        view.backgroundColor = .white
+    func configureTableView(){
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TrendCell.self, forCellReuseIdentifier: TrendCell.identifier)
@@ -63,6 +63,7 @@ extension TrendViewController:UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TrendCell.identifier, for: indexPath) as! TrendCell
         cell.configureData(data: movieData[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -72,5 +73,6 @@ extension TrendViewController:UITableViewDelegate, UITableViewDataSource{
         vc.configureMovieInfo(data: movieData[indexPath.row])
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+ 
+
 }

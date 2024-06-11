@@ -23,3 +23,9 @@ extension UIViewController:ReuseIdentifierProtocol{
         return String(describing: self)
     }
 }
+
+extension UICollectionViewCell:ReuseIdentifierProtocol{
+    static var identifier:String{
+        return String(describing: self)
+    }
+}

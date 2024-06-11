@@ -144,7 +144,7 @@ class ViewController: UIViewController {
     }
     
     @objc func plusButtonTapped(){
-        let nextVC = TrendViewController()
+        let nextVC = MovieSearchViewController()
         navigationController?.pushViewController(nextVC, animated: true)
     }
 

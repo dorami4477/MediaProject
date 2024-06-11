@@ -103,7 +103,7 @@ class CreditViewController: UIViewController{
             case .success(let value):
                 self.castData = value.cast
                 self.tableView.reloadData()
-                print(self.castData)
+            
             case .failure(let error):
                 print(error)
             }
