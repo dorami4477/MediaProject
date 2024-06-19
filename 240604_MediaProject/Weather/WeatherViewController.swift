@@ -8,8 +8,11 @@
 import UIKit
 import Alamofire
 import Kingfisher
+import CoreLocation
 
 class WeatherViewController: UIViewController {
+    
+    let locationManager = CLLocationManager()
 
     let dateLabel = {
         let label = UILabel()
@@ -62,8 +65,10 @@ class WeatherViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureUI()
-        callRequest()
+        //callRequest()
         configureTableView()
+        
+        locationManager.delegate = self
     }
     
     func configureHierarchy(){
@@ -112,8 +117,8 @@ class WeatherViewController: UIViewController {
     }
 
     
-    func callRequest(){
-        let url = "\(APIUrl.weather)lat=37.498061&lon=127.028759&lang=kr&units=metric&appid=\(APIKey.weather)"
+    func callRequest(location:CLLocationCoordinate2D){
+        let url = "\(APIUrl.weather)lat=\(location.latitude)&lon=\(location.longitude)&lang=kr&units=metric&appid=\(APIKey.weather)"
      
         AF.request(url).responseDecodable(of: WeatherModel.self) { response in
             switch response.result{
@@ -174,5 +179,54 @@ extension WeatherViewController:UITableViewDataSource, UITableViewDelegate{
         }
     }
     
+    func checkDeviceLocationAuthorization(){
+        //아이폰 위치 서비스 켜졌는지 확인
+        if CLLocationManager.locationServicesEnabled(){
+            checkCurrentLocationAuthorization()
+        }else{
+            print("해당 아이폰의 위치 서비스가 꺼져있습니다.")
+        }
+    }
     
+    func checkCurrentLocationAuthorization(){
+        var status:CLAuthorizationStatus
+        
+        if #available(iOS 14.0, *){
+            status = locationManager.authorizationStatus
+        }else{
+            status = CLLocationManager.authorizationStatus()
+        }
+        
+        switch status {
+        case .notDetermined:
+            print(status)
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestWhenInUseAuthorization() //권한 설정 메시지 띄우기
+        case .denied:
+            print(status)
+            print("iOS 설정 창으로 이동하라는 얼럿을 띄워주기")
+        case .authorizedWhenInUse:
+            //info plist에서 설정해야함
+            print(status)
+            locationManager.startUpdatingLocation()
+        default:
+            print(status)
+        }
+    }
+    
+}
+
+
+extension WeatherViewController:CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let coordinate = locations.last?.coordinate{
+            callRequest(location: coordinate)
+        }
+        
+        locationManager.stopUpdatingLocation()
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkDeviceLocationAuthorization()
+    }
 }
