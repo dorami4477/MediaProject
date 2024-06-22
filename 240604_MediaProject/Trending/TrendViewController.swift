@@ -11,7 +11,7 @@ import Alamofire
 class TrendViewController: UIViewController {
     
     let tableView = UITableView()
-    
+    let network = NetworkManager.shared
     var movieData:[MovieList] = []
 
     override func viewDidLoad() {
@@ -20,8 +20,12 @@ class TrendViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureTableView()
-        callRequest()
+        network.fetchTrending { value in
+            self.movieData = value.results
+            self.tableView.reloadData()
+        }
     }
+
     func configureHierarchy(){
         view.addSubview(tableView)
     }
@@ -35,24 +39,7 @@ class TrendViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(TrendCell.self, forCellReuseIdentifier: TrendCell.identifier)
     }
-    
-    func callRequest(){
-        let url = "https://api.themoviedb.org/3/trending/movie/day"
         
-        let header:HTTPHeaders = ["accept": "application/json", "Authorization": APIKey.tmdbAccess]
-        
-        AF.request(url, method: .get, headers: header)
-            .responseDecodable(of: Movie.self) { response in
-            switch response.result{
-            case .success(let value):
-                self.movieData = value.results
-                self.tableView.reloadData()
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
 }
 
 extension TrendViewController:UITableViewDelegate, UITableViewDataSource{

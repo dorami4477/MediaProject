@@ -12,7 +12,10 @@ class CreditViewController: UIViewController{
 
     var movieId:Int = 0{
         didSet{
-            callRequestCredit(id:movieId)
+            NetworkManager.shared.requestCredit(id: movieId) { value in
+                self.castData = value.cast
+                self.tableView.reloadData()
+            }
         }
     }
     var castData:[Cast]?
@@ -92,24 +95,6 @@ class CreditViewController: UIViewController{
         posterIamgeView.kf.setImage(with: posterUrl)
     }
     
-    func callRequestCredit(id:Int){
-        let url = "https://api.themoviedb.org/3/movie/\(movieId)/credits"
-        
-        let header:HTTPHeaders = ["accept": "application/json", "Authorization": APIKey.tmdbAccess]
-        
-        AF.request(url, method: .get, headers: header)
-            .responseDecodable(of: Credit.self) { response in
-            switch response.result{
-            case .success(let value):
-                self.castData = value.cast
-                self.tableView.reloadData()
-            
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-
 
 }
 
