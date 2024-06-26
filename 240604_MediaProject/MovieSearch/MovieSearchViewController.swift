@@ -64,10 +64,9 @@ class MovieSearchViewController: UIViewController {
         searchBar.delegate = self
     }
     
-    
-    
+/*
     func callRequest(query:String){
-        let url = "\(APIUrl.movieSearch)?language=ko&query=\(query)&page=\(page)"
+        let url = "\(APIUrl.movieSearch)"
         
         let header:HTTPHeaders = ["accept": "application/json", "Authorization": APIKey.tmdbAccess]
         
@@ -91,7 +90,7 @@ class MovieSearchViewController: UIViewController {
                 print(error)
             }
         }
-    }
+    }*/
 }
 
 // MARK: - collectionView
@@ -112,8 +111,20 @@ extension MovieSearchViewController:UICollectionViewDataSource, UICollectionView
 // MARK: - searchBar
 extension MovieSearchViewController:UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        page = 1
-        callRequest(query:searchBar.text!)
+        //page = 1
+        //callRequest(query:searchBar.text!)
+        NetworkManager.shared.requestSearch(api: TrendingAPI.search(query: searchBar.text!, page: 1)) { value, error in
+            if let error{
+                print(error)
+            }else{
+                guard let value else { return }
+                self.totalPage = value.total_pages
+                self.data = value
+                
+                self.collectionView.reloadData()
+                self.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: false)
+            }
+        }
     }
 }
 
@@ -123,7 +134,18 @@ extension MovieSearchViewController:UICollectionViewDataSourcePrefetching{
         for item in indexPaths{
             if data!.results.count - 4 == item.item && totalPage > page{
                 page += 1
-                callRequest(query: searchBar.text!)
+                //callRequest(query: searchBar.text!)
+                NetworkManager.shared.requestSearch(api: TrendingAPI.search(query: searchBar.text!, page: page)) { value, error in
+                    if let error{
+                        print(error)
+                    }else{
+                        guard let value else { return }
+                        self.totalPage = value.total_pages
+                        self.data?.results.append(contentsOf: value.results)
+                        
+                        self.collectionView.reloadData()
+                    }
+                }
             }
         }
     }

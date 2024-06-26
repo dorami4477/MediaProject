@@ -12,9 +12,14 @@ class CreditViewController: UIViewController{
 
     var movieId:Int = 0{
         didSet{
-            NetworkManager.shared.requestCredit(id: movieId) { value in
-                self.castData = value.cast
-                self.tableView.reloadData()
+            NetworkManager.shared.requestCredit(api: TrendingAPI.credit(id: movieId)) { value, error in
+                if let error{
+                    print(error)
+                }else{
+                    guard let value else { return }
+                    self.castData = value.cast
+                    self.tableView.reloadData()
+                }
             }
         }
     }

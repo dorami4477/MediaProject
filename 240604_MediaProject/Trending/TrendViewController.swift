@@ -20,9 +20,14 @@ class TrendViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureTableView()
-        network.fetchTrending { value in
-            self.movieData = value.results
-            self.tableView.reloadData()
+        network.fetchTrending(api: TrendingAPI.trending) { value, error in
+            if let error{
+                print(error)
+            }else{
+                guard let value else { return }
+                self.movieData = value.results
+                self.tableView.reloadData()
+            }
         }
     }
 

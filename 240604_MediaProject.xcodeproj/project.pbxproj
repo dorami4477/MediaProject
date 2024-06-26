@@ -41,6 +41,7 @@
 		4890FADE2C184D08003C5146 /* MovieSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890FADD2C184D08003C5146 /* MovieSearchCell.swift */; };
 		4890FAE02C185174003C5146 /* MovieSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890FADF2C185174003C5146 /* MovieSearch.swift */; };
 		4890FAE22C1861AA003C5146 /* MovieGenres.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890FAE12C1861AA003C5146 /* MovieGenres.swift */; };
+		48CC98402C2BEBC1003CA962 /* TrendingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CC983F2C2BEBC1003CA962 /* TrendingAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		4890FADD2C184D08003C5146 /* MovieSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchCell.swift; sourceTree = "<group>"; };
 		4890FADF2C185174003C5146 /* MovieSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearch.swift; sourceTree = "<group>"; };
 		4890FAE12C1861AA003C5146 /* MovieGenres.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGenres.swift; sourceTree = "<group>"; };
+		48CC983F2C2BEBC1003CA962 /* TrendingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +122,6 @@
 				483F59202C16F4D50048F839 /* CreditViewController.swift */,
 				483F59222C16F7B50048F839 /* Credit.swift */,
 				483F59242C16FE500048F839 /* CreditCell.swift */,
-				48218CB32C268DA9003ADF9A /* NetworkManager.swift */,
 			);
 			path = Trending;
 			sourceTree = "<group>";
@@ -167,6 +168,7 @@
 		486F35B12C0F152E0009C21E /* 240604_MediaProject */ = {
 			isa = PBXGroup;
 			children = (
+				48CC98412C2BF0B6003CA962 /* Network */,
 				4890FADA2C184BC6003C5146 /* MovieSearch */,
 				483F591D2C16C5E30048F839 /* Helpers */,
 				483F59162C16C41F0048F839 /* Trending */,
@@ -194,6 +196,15 @@
 				4890FAE12C1861AA003C5146 /* MovieGenres.swift */,
 			);
 			path = MovieSearch;
+			sourceTree = "<group>";
+		};
+		48CC98412C2BF0B6003CA962 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				48CC983F2C2BEBC1003CA962 /* TrendingAPI.swift */,
+				48218CB32C268DA9003ADF9A /* NetworkManager.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48218CB42C268DA9003ADF9A /* NetworkManager.swift in Sources */,
+				48CC98402C2BEBC1003CA962 /* TrendingAPI.swift in Sources */,
 				483F591F2C16E1290048F839 /* Movie.swift in Sources */,
 				483F59182C16C43D0048F839 /* TrendViewController.swift in Sources */,
 				483F59252C16FE500048F839 /* CreditCell.swift in Sources */,
