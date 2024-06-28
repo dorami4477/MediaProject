@@ -67,8 +67,10 @@ class WeatherViewController: UIViewController {
         configureUI()
         //callRequest()
         configureTableView()
-        
         locationManager.delegate = self
+        
+        locationManager.requestWhenInUseAuthorization()
+        //이걸 여기 쓰는게 맞나...?
     }
     
     func configureHierarchy(){
@@ -119,7 +121,7 @@ class WeatherViewController: UIViewController {
     
     func callRequest(location:CLLocationCoordinate2D){
         let url = "\(APIUrl.weather)lat=\(location.latitude)&lon=\(location.longitude)&lang=kr&units=metric&appid=\(APIKey.weather)"
-     
+
         AF.request(url).responseDecodable(of: WeatherModel.self) { response in
             switch response.result{
             case .success(let value):
@@ -181,16 +183,17 @@ extension WeatherViewController:UITableViewDataSource, UITableViewDelegate{
     
     func checkDeviceLocationAuthorization(){
         //아이폰 위치 서비스 켜졌는지 확인
-        if CLLocationManager.locationServicesEnabled(){
-            checkCurrentLocationAuthorization()
-        }else{
-            print("해당 아이폰의 위치 서비스가 꺼져있습니다.")
+        DispatchQueue.global().async {
+            if CLLocationManager.locationServicesEnabled(){
+                self.checkCurrentLocationAuthorization()
+            }else{
+                print("해당 아이폰의 위치 서비스가 꺼져있습니다.")
+            }
         }
     }
     
     func checkCurrentLocationAuthorization(){
         var status:CLAuthorizationStatus
-        
         if #available(iOS 14.0, *){
             status = locationManager.authorizationStatus
         }else{
