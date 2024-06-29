@@ -12,7 +12,7 @@ class CreditViewController: UIViewController{
 
     var movieId:Int = 0{
         didSet{
-            NetworkManager.shared.requestCredit(api: TrendingAPI.credit(id: movieId)) { value, error in
+            NetworkManager.shared.callRequest(api: TrendingAPI.credit(id: movieId), model: Credit.self) { value, error in
                 if let error{
                     print(error)
                 }else{

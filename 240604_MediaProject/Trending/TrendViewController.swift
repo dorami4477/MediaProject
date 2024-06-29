@@ -20,7 +20,7 @@ class TrendViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureTableView()
-        network.fetchTrending(api: TrendingAPI.trending) { value, error in
+        network.callRequest(api: TrendingAPI.trending, model: Movie.self) { value, error in
             if let error{
                 print(error)
             }else{

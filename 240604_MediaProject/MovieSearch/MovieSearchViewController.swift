@@ -113,7 +113,7 @@ extension MovieSearchViewController:UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         //page = 1
         //callRequest(query:searchBar.text!)
-        NetworkManager.shared.requestSearch(api: TrendingAPI.search(query: searchBar.text!, page: 1)) { value, error in
+        NetworkManager.shared.callRequest(api: TrendingAPI.search(query: searchBar.text!, page: 1), model: MovieSearch.self) { value, error in
             if let error{
                 print(error)
             }else{
@@ -135,7 +135,7 @@ extension MovieSearchViewController:UICollectionViewDataSourcePrefetching{
             if data!.results.count - 4 == item.item && totalPage > page{
                 page += 1
                 //callRequest(query: searchBar.text!)
-                NetworkManager.shared.requestSearch(api: TrendingAPI.search(query: searchBar.text!, page: page)) { value, error in
+                NetworkManager.shared.callRequest(api: TrendingAPI.search(query: searchBar.text!, page: page), model: MovieSearch.self) { value, error in
                     if let error{
                         print(error)
                     }else{
