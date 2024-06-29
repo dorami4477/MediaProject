@@ -37,6 +37,7 @@
 		486F35BF2C0F15300009C21E /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 486F35BE2C0F15300009C21E /* Base */; };
 		486F35C82C0F15590009C21E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 486F35C72C0F15590009C21E /* SnapKit */; };
 		486F35CA2C0F22470009C21E /* JackFlixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F35C92C0F22470009C21E /* JackFlixViewController.swift */; };
+		4888166D2C2FD20600DFBC55 /* WeatherNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4888166C2C2FD20600DFBC55 /* WeatherNetwork.swift */; };
 		4890FADC2C184C53003C5146 /* MovieSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890FADB2C184C53003C5146 /* MovieSearchViewController.swift */; };
 		4890FADE2C184D08003C5146 /* MovieSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890FADD2C184D08003C5146 /* MovieSearchCell.swift */; };
 		4890FAE02C185174003C5146 /* MovieSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890FADF2C185174003C5146 /* MovieSearch.swift */; };
@@ -74,6 +75,7 @@
 		486F35BE2C0F15300009C21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		486F35C02C0F15300009C21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		486F35C92C0F22470009C21E /* JackFlixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JackFlixViewController.swift; sourceTree = "<group>"; };
+		4888166C2C2FD20600DFBC55 /* WeatherNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetwork.swift; sourceTree = "<group>"; };
 		4890FADB2C184C53003C5146 /* MovieSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchViewController.swift; sourceTree = "<group>"; };
 		4890FADD2C184D08003C5146 /* MovieSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchCell.swift; sourceTree = "<group>"; };
 		4890FADF2C185174003C5146 /* MovieSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearch.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				48442F692C13FAD9001CEC4D /* WeatherViewController.swift */,
 				48442F6B2C141454001CEC4D /* WeatherCell.swift */,
 				48442F722C141F68001CEC4D /* WeatherImgCell.swift */,
+				4888166C2C2FD20600DFBC55 /* WeatherNetwork.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				486F35B72C0F152E0009C21E /* ViewController.swift in Sources */,
 				48442F6C2C141454001CEC4D /* WeatherCell.swift in Sources */,
 				483F591A2C16C57E0048F839 /* TrendCell.swift in Sources */,
+				4888166D2C2FD20600DFBC55 /* WeatherNetwork.swift in Sources */,
 				486F35B32C0F152E0009C21E /* AppDelegate.swift in Sources */,
 				486F35CA2C0F22470009C21E /* JackFlixViewController.swift in Sources */,
 				4890FAE02C185174003C5146 /* MovieSearch.swift in Sources */,

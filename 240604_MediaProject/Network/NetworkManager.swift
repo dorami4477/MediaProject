@@ -13,8 +13,6 @@ final class NetworkManager{
     
     static let shared = NetworkManager()
     private init(){}
-    
-
 
     func callRequest<T: Decodable>(api:TrendingAPI, model:T.Type, completionHandler:@escaping (T?, String?)-> Void){
         AF.request(api.endPoint,

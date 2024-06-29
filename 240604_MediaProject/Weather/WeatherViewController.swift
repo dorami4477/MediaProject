@@ -56,7 +56,6 @@ class WeatherViewController: UIViewController {
             locationLabel.attributedText = attributedString
             
             tableView.reloadData()
-            print(data)
         }
     }
     
@@ -119,7 +118,7 @@ class WeatherViewController: UIViewController {
     }
 
     
-    func callRequest(location:CLLocationCoordinate2D){
+    /*func callRequest(location:CLLocationCoordinate2D){
         let url = "\(APIUrl.weather)lat=\(location.latitude)&lon=\(location.longitude)&lang=kr&units=metric&appid=\(APIKey.weather)"
 
         AF.request(url).responseDecodable(of: WeatherModel.self) { response in
@@ -130,7 +129,7 @@ class WeatherViewController: UIViewController {
                 print(error)
             }
         }
-    }
+    }*/
     
     
     func getNow() -> String{
@@ -223,7 +222,15 @@ extension WeatherViewController:UITableViewDataSource, UITableViewDelegate{
 extension WeatherViewController:CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate{
-            callRequest(location: coordinate)
+            //callRequest(location: coordinate)
+            WeatherNetwork.shared.callRequest(location: coordinate) { value, error in
+                guard error == nil else {
+                    dump(error)
+                    return
+                }
+                guard let value else { return }
+                self.data = value
+            }
         }
         
         locationManager.stopUpdatingLocation()
