@@ -38,6 +38,7 @@
 		486F35C82C0F15590009C21E /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 486F35C72C0F15590009C21E /* SnapKit */; };
 		486F35CA2C0F22470009C21E /* JackFlixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F35C92C0F22470009C21E /* JackFlixViewController.swift */; };
 		4888166D2C2FD20600DFBC55 /* WeatherNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4888166C2C2FD20600DFBC55 /* WeatherNetwork.swift */; };
+		488CFFED2C32F647005F900F /* NasaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488CFFEC2C32F647005F900F /* NasaViewController.swift */; };
 		4890FADC2C184C53003C5146 /* MovieSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890FADB2C184C53003C5146 /* MovieSearchViewController.swift */; };
 		4890FADE2C184D08003C5146 /* MovieSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890FADD2C184D08003C5146 /* MovieSearchCell.swift */; };
 		4890FAE02C185174003C5146 /* MovieSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890FADF2C185174003C5146 /* MovieSearch.swift */; };
@@ -76,6 +77,7 @@
 		486F35C02C0F15300009C21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		486F35C92C0F22470009C21E /* JackFlixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JackFlixViewController.swift; sourceTree = "<group>"; };
 		4888166C2C2FD20600DFBC55 /* WeatherNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetwork.swift; sourceTree = "<group>"; };
+		488CFFEC2C32F647005F900F /* NasaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaViewController.swift; sourceTree = "<group>"; };
 		4890FADB2C184C53003C5146 /* MovieSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchViewController.swift; sourceTree = "<group>"; };
 		4890FADD2C184D08003C5146 /* MovieSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchCell.swift; sourceTree = "<group>"; };
 		4890FADF2C185174003C5146 /* MovieSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearch.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		486F35B12C0F152E0009C21E /* 240604_MediaProject */ = {
 			isa = PBXGroup;
 			children = (
+				488CFFEB2C32F616005F900F /* Nasa */,
 				48CC98412C2BF0B6003CA962 /* Network */,
 				4890FADA2C184BC6003C5146 /* MovieSearch */,
 				483F591D2C16C5E30048F839 /* Helpers */,
@@ -188,6 +191,14 @@
 				486F35C92C0F22470009C21E /* JackFlixViewController.swift */,
 			);
 			path = 240604_MediaProject;
+			sourceTree = "<group>";
+		};
+		488CFFEB2C32F616005F900F /* Nasa */ = {
+			isa = PBXGroup;
+			children = (
+				488CFFEC2C32F647005F900F /* NasaViewController.swift */,
+			);
+			path = Nasa;
 			sourceTree = "<group>";
 		};
 		4890FADA2C184BC6003C5146 /* MovieSearch */ = {
@@ -313,6 +324,7 @@
 				486F35B32C0F152E0009C21E /* AppDelegate.swift in Sources */,
 				486F35CA2C0F22470009C21E /* JackFlixViewController.swift in Sources */,
 				4890FAE02C185174003C5146 /* MovieSearch.swift in Sources */,
+				488CFFED2C32F647005F900F /* NasaViewController.swift in Sources */,
 				486F35B52C0F152E0009C21E /* SceneDelegate.swift in Sources */,
 				481F2E102C1069160074DB27 /* MovieListViewController.swift in Sources */,
 				481F2E0A2C103ABD0074DB27 /* APIKey.swift in Sources */,

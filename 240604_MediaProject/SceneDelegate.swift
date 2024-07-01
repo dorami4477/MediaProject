@@ -21,7 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let tabBarVC = UITabBarController()
                 
                 // 첫번째 화면은 네비게이션컨트롤러로 만들기 (기본루트뷰 설정)
-                let vc1 = UINavigationController(rootViewController: LotteryViewController())
+               // let vc1 = UINavigationController(rootViewController: LotteryViewController())
+        let vc1 = UINavigationController(rootViewController: NasaViewController())
                 let vc2 = MovieListViewController()
                 let vc3 = WeatherViewController()
                 let vc4 = UINavigationController(rootViewController: TrendViewController())
