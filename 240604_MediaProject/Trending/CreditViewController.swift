@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-class CreditViewController: UIViewController{
+final class CreditViewController: UIViewController{
 
     var movieId:Int = 0{
         didSet{
@@ -23,31 +23,42 @@ class CreditViewController: UIViewController{
             }
         }
     }
-    var castData:[Cast]?
+    private var castData:[Cast]?
     
-    let mainIamgeView = {
+    private let mainIamgeView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill
         return img
     }()
-    let posterIamgeView = {
+    private let posterIamgeView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFit
         return img
     }()
-    let titleLabel = {
+    private let titleLabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 24)
         label.textColor = .white
         return label
     }()
-    let captionLabel = {
+    private let videoButton = {
+        let button = UIButton()
+        button.setTitle("영상보기", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
+        button.addTarget(self, action: #selector(videoButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    private let captionLabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 14)
         label.numberOfLines = 0
         return label
     }()
-    let tableView = UITableView()
+    private let tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,10 +68,10 @@ class CreditViewController: UIViewController{
         configureLayout()
         configureTableView()
     }
-    func configureHierarchy(){
-        [mainIamgeView, titleLabel, posterIamgeView, captionLabel, tableView].forEach { view.addSubview($0)}
+    private func configureHierarchy(){
+        [mainIamgeView, titleLabel, posterIamgeView, videoButton, captionLabel, tableView].forEach { view.addSubview($0)}
     }
-    func configureLayout(){
+    private func configureLayout(){
         mainIamgeView.snp.makeConstraints { make in
             make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(200)
@@ -74,6 +85,10 @@ class CreditViewController: UIViewController{
             make.width.equalTo(80)
             make.height.equalTo(120)
         }
+        videoButton.snp.makeConstraints { make in
+            make.bottom.equalTo(mainIamgeView.snp.bottom).inset(10)
+            make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
         captionLabel.snp.makeConstraints { make in
             make.top.equalTo(mainIamgeView.snp.bottom).offset(20)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
@@ -84,7 +99,7 @@ class CreditViewController: UIViewController{
         }
             
     }
-    func configureTableView(){
+    private func configureTableView(){
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CreditCell.self, forCellReuseIdentifier: CreditCell.identifier)
@@ -100,7 +115,11 @@ class CreditViewController: UIViewController{
         posterIamgeView.kf.setImage(with: posterUrl)
     }
     
-
+    @objc func videoButtonTapped(){
+        let videoVC = VideoListViewController()
+        videoVC.movieId = self.movieId
+        navigationController?.pushViewController(videoVC, animated: true)
+    }
 }
 
 extension CreditViewController:UITableViewDataSource, UITableViewDelegate{

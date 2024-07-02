@@ -7,21 +7,21 @@
 
 import UIKit
 
-class CreditCell: UITableViewCell {
+final class CreditCell: UITableViewCell {
 
-    let mainImageView = {
+    private let mainImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill
         img.layer.cornerRadius = 5
         img.clipsToBounds = true
         return img
     }()
-    let acterNameLabel = {
+    private let acterNameLabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
-    let castNameLabel = {
+    private let castNameLabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
         label.textColor = .gray
@@ -33,12 +33,12 @@ class CreditCell: UITableViewCell {
         configureHierarchy()
         configureLayout()
     }
-    func configureHierarchy(){
+    private func configureHierarchy(){
         contentView.addSubview(mainImageView)
         contentView.addSubview(acterNameLabel)
         contentView.addSubview(castNameLabel)
     }
-    func configureLayout(){
+    private func configureLayout(){
         mainImageView.snp.makeConstraints { make in
             make.verticalEdges.equalToSuperview().inset(8)
             make.leading.equalToSuperview().inset(20)

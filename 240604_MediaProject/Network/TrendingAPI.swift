@@ -12,6 +12,7 @@ enum TrendingAPI{
     case trending
     case search(query:String, page:Int)
     case credit(id:Int)
+    case video(id:Int)
     
     var baseURL:String{
         return "https://api.themoviedb.org/3/"
@@ -25,6 +26,8 @@ enum TrendingAPI{
             return URL(string: baseURL + "search/movie")!
         case .credit(let id):
             return URL(string: baseURL + "movie/\(id)/credits")!
+        case .video(let id):
+            return URL(string: baseURL + "movie/\(id)/videos")!
         }
     }
     
@@ -44,6 +47,8 @@ enum TrendingAPI{
             return ["language":"ko", "query": query, "page": page]
         case .credit:
             return [:]
+        case .video(id: let id):
+            return ["language":"ko"]
         }
     }
 }

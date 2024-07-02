@@ -8,20 +8,20 @@
 import UIKit
 import Kingfisher
 
-class TrendCell: UITableViewCell {
+final class TrendCell: UITableViewCell {
 
-    let dateLabel = {
+    private let dateLabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13)
         label.textColor = .gray
         return label
     }()
-    let categoryLabel = {
+    private let categoryLabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
-    let cardView = {
+    private let cardView = {
         let view = UIView()
         view.layer.cornerRadius = 10
         view.backgroundColor = .white
@@ -31,43 +31,43 @@ class TrendCell: UITableViewCell {
         view.layer.shadowOffset = CGSize(width: 0, height: 0)
         return view
     }()
-    let cardImageView = {
+    private let cardImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.roundCorners(cornerRadius: 10, maskedCorners: [.layerMinXMinYCorner, .layerMaxXMinYCorner])
         imageView.clipsToBounds = true
         return imageView
     }()
-    let gradeLabel = {
+    private let gradeLabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 13)
         label.backgroundColor = .white
         return label
     }()
-    let titleLabel = {
+    private let titleLabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18)
         return label
     }()
-    let captionLabel = {
+    private let captionLabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
         label.textColor = .darkGray
         return label
     }()
-    let seeMoreLabel = {
+    private let seeMoreLabel = {
         let label = UILabel()
         label.text = "자세히 보기"
         label.font = .systemFont(ofSize: 14)
         return label
     }()
-    let seeMoreImgeView = {
+    private let seeMoreImgeView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "chevron.right")
         imageView.tintColor = .black
         return imageView
     }()
-    let lineView = {
+    private let lineView = {
         let view = UIView()
         view.backgroundColor = .gray
         return view
@@ -82,11 +82,11 @@ class TrendCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    func configureHierarchy(){
+    private func configureHierarchy(){
         [dateLabel, categoryLabel, cardView].forEach { contentView.addSubview($0) }
         [cardImageView, gradeLabel, titleLabel, captionLabel, lineView, seeMoreLabel, seeMoreImgeView].forEach { cardView.addSubview($0) }
     }
-    func configureLayout(){
+    private func configureLayout(){
         dateLabel.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(20)
             make.top.equalToSuperview().offset(20)

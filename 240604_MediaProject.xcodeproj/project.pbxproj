@@ -39,6 +39,10 @@
 		486F35CA2C0F22470009C21E /* JackFlixViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486F35C92C0F22470009C21E /* JackFlixViewController.swift */; };
 		4888166D2C2FD20600DFBC55 /* WeatherNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4888166C2C2FD20600DFBC55 /* WeatherNetwork.swift */; };
 		488CFFED2C32F647005F900F /* NasaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488CFFEC2C32F647005F900F /* NasaViewController.swift */; };
+		488CFFF72C33F1F1005F900F /* MovieVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488CFFF62C33F1F1005F900F /* MovieVideo.swift */; };
+		488CFFFB2C33F48C005F900F /* VideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488CFFFA2C33F48C005F900F /* VideoListViewController.swift */; };
+		488CFFFD2C33F6EB005F900F /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488CFFFC2C33F6EB005F900F /* VideoCell.swift */; };
+		488CFFFF2C33FE65005F900F /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488CFFFE2C33FE65005F900F /* VideoViewController.swift */; };
 		4890FADC2C184C53003C5146 /* MovieSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890FADB2C184C53003C5146 /* MovieSearchViewController.swift */; };
 		4890FADE2C184D08003C5146 /* MovieSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890FADD2C184D08003C5146 /* MovieSearchCell.swift */; };
 		4890FAE02C185174003C5146 /* MovieSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890FADF2C185174003C5146 /* MovieSearch.swift */; };
@@ -78,6 +82,10 @@
 		486F35C92C0F22470009C21E /* JackFlixViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JackFlixViewController.swift; sourceTree = "<group>"; };
 		4888166C2C2FD20600DFBC55 /* WeatherNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetwork.swift; sourceTree = "<group>"; };
 		488CFFEC2C32F647005F900F /* NasaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaViewController.swift; sourceTree = "<group>"; };
+		488CFFF62C33F1F1005F900F /* MovieVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieVideo.swift; sourceTree = "<group>"; };
+		488CFFFA2C33F48C005F900F /* VideoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoListViewController.swift; sourceTree = "<group>"; };
+		488CFFFC2C33F6EB005F900F /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		488CFFFE2C33FE65005F900F /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		4890FADB2C184C53003C5146 /* MovieSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchViewController.swift; sourceTree = "<group>"; };
 		4890FADD2C184D08003C5146 /* MovieSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchCell.swift; sourceTree = "<group>"; };
 		4890FADF2C185174003C5146 /* MovieSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearch.swift; sourceTree = "<group>"; };
@@ -126,6 +134,10 @@
 				483F59202C16F4D50048F839 /* CreditViewController.swift */,
 				483F59222C16F7B50048F839 /* Credit.swift */,
 				483F59242C16FE500048F839 /* CreditCell.swift */,
+				488CFFF62C33F1F1005F900F /* MovieVideo.swift */,
+				488CFFFA2C33F48C005F900F /* VideoListViewController.swift */,
+				488CFFFC2C33F6EB005F900F /* VideoCell.swift */,
+				488CFFFE2C33FE65005F900F /* VideoViewController.swift */,
 			);
 			path = Trending;
 			sourceTree = "<group>";
@@ -311,9 +323,12 @@
 				481F2E162C10B31A0074DB27 /* MovieListCell.swift in Sources */,
 				48442F6A2C13FAD9001CEC4D /* WeatherViewController.swift in Sources */,
 				48442F6E2C141C3E001CEC4D /* UILabel.swift in Sources */,
+				488CFFFF2C33FE65005F900F /* VideoViewController.swift in Sources */,
 				4890FADE2C184D08003C5146 /* MovieSearchCell.swift in Sources */,
 				481F2E142C10AAC30074DB27 /* MovieModel.swift in Sources */,
+				488CFFFB2C33F48C005F900F /* VideoListViewController.swift in Sources */,
 				4890FAE22C1861AA003C5146 /* MovieGenres.swift in Sources */,
+				488CFFF72C33F1F1005F900F /* MovieVideo.swift in Sources */,
 				483F591C2C16C5B10048F839 /* ReusableID.swift in Sources */,
 				483F59212C16F4D50048F839 /* CreditViewController.swift in Sources */,
 				48442F732C141F68001CEC4D /* WeatherImgCell.swift in Sources */,
@@ -330,6 +345,7 @@
 				481F2E0A2C103ABD0074DB27 /* APIKey.swift in Sources */,
 				4890FADC2C184C53003C5146 /* MovieSearchViewController.swift in Sources */,
 				481F2E072C103A430074DB27 /* LotteryViewController.swift in Sources */,
+				488CFFFD2C33F6EB005F900F /* VideoCell.swift in Sources */,
 				483F59232C16F7B50048F839 /* Credit.swift in Sources */,
 				481F2E122C106D5E0074DB27 /* extension.swift in Sources */,
 				48442F682C13FAC5001CEC4D /* WeatherModel.swift in Sources */,

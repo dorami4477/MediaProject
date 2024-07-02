@@ -8,11 +8,11 @@
 import UIKit
 import Alamofire
 
-class TrendViewController: UIViewController {
+final class TrendViewController: UIViewController {
     
-    let tableView = UITableView()
+    private let tableView = UITableView()
     let network = NetworkManager.shared
-    var movieData:[MovieList] = []
+    private var movieData:[MovieList] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,15 +31,15 @@ class TrendViewController: UIViewController {
         }
     }
 
-    func configureHierarchy(){
+    private func configureHierarchy(){
         view.addSubview(tableView)
     }
-    func configureLayout(){
+    private func configureLayout(){
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
-    func configureTableView(){
+    private func configureTableView(){
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(TrendCell.self, forCellReuseIdentifier: TrendCell.identifier)
