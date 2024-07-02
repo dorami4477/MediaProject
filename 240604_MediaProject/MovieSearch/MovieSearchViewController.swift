@@ -8,16 +8,16 @@
 import UIKit
 import Alamofire
 
-class MovieSearchViewController: UIViewController {
+final class MovieSearchViewController: UIViewController {
     
-    let searchBar = UISearchBar()
-    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
-    var data:MovieSearch?
+    private let searchBar = UISearchBar()
+    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout())
+    private var data:MovieSearch?
     
-    var page = 1
-    var totalPage = 1
+    private var page = 1
+    private var totalPage = 1
     
-    func collectionViewLayout() -> UICollectionViewLayout{
+    private func collectionViewLayout() -> UICollectionViewLayout{
         let layout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width - 30
         layout.itemSize = CGSize(width: width/2, height: width/1.5)
@@ -39,11 +39,11 @@ class MovieSearchViewController: UIViewController {
     }
 
     
-    func configureHierarchy(){
+    private func configureHierarchy(){
         view.addSubview(collectionView)
         view.addSubview(searchBar)
     }
-    func configureLayout(){
+    private func configureLayout(){
         searchBar.snp.makeConstraints { make in
             make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(44)
@@ -53,10 +53,10 @@ class MovieSearchViewController: UIViewController {
             make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
-    func configureUI(){
+    private func configureUI(){
         view.backgroundColor = .white
     }
-    func configureCV(){
+    private func configureCV(){
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(MovieSearchCell.self, forCellWithReuseIdentifier: MovieSearchCell.identifier)

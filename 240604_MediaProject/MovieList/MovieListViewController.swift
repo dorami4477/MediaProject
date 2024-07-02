@@ -10,13 +10,13 @@ import Alamofire
 import SnapKit
 
 
-class MovieListViewController: UIViewController {
+final class MovieListViewController: UIViewController {
 
-    let searchTextField = UITextField()
-    let searchButton = UIButton()
-    let tableView = UITableView()
+    private let searchTextField = UITextField()
+    private let searchButton = UIButton()
+    private let tableView = UITableView()
     
-    var movieData:[DailyBoxOfficeList] = []
+    private var movieData:[DailyBoxOfficeList] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,13 +28,13 @@ class MovieListViewController: UIViewController {
         searchButton.addTarget(self, action: #selector(searchButtonClicked), for: .touchUpInside)
 
     }
-    func configureHierarchy(){
+    private func configureHierarchy(){
         view.addSubview(searchTextField)
         view.addSubview(searchButton)
         view.addSubview(tableView)
     }
     
-    func configureLayout(){
+    private func configureLayout(){
         searchTextField.snp.makeConstraints { make in
             make.top.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.width.equalTo(view.frame.width - 110)
@@ -51,7 +51,7 @@ class MovieListViewController: UIViewController {
             make.horizontalEdges.bottom.equalToSuperview()
         }
     }
-    func configureUI(){
+    private func configureUI(){
         view.backgroundColor = .black
         searchTextField.backgroundColor = .white
         //* 밑줄만 보이게 안됨...
@@ -63,13 +63,13 @@ class MovieListViewController: UIViewController {
         tableView.backgroundColor = .clear
     }
     
-    func setDelegate(){
+    private func setDelegate(){
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(MovieListCell.self, forCellReuseIdentifier: "MovieListCell")
     }
 
-    func callRequest(date:String){
+    private func callRequest(date:String){
         let url = "\(APIUrl.movie)key=\(APIKey.movie)&targetDt=\(date)"
    
         AF.request(url).responseDecodable(of: MovieModel.self) { response in
@@ -89,7 +89,7 @@ class MovieListViewController: UIViewController {
                 callRequest(date:date)
     }
     
-    func getYesterday() -> String{
+    private func getYesterday() -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
         let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())

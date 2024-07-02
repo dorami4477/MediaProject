@@ -7,14 +7,14 @@
 
 import UIKit
 
-class MovieSearchCell: UICollectionViewCell {
+final class MovieSearchCell: UICollectionViewCell {
     
-    let mainImageView = {
+    private let mainImageView = {
         let img = UIImageView()
         img.contentMode = .scaleAspectFill
         return img
     }()
-    let titleLabel = {
+    private let titleLabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 19, weight: .black)
         label.textColor = .white
@@ -26,19 +26,19 @@ class MovieSearchCell: UICollectionViewCell {
         label.layer.shadowOffset = CGSize(width: 0, height: 0)
         return label
     }()
-    let overviewLabel = {
+    private let overviewLabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14)
         label.numberOfLines = 0
         label.textColor = .gray
         return label
     }()
-    let genreLabel = {
+    private let genreLabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15)
         return label
     }()
-    let gradeLabel = {
+    private let gradeLabel = {
         let label = PaddingLabel()
         label.font = .boldSystemFont(ofSize: 15)
         label.backgroundColor = .red
@@ -59,12 +59,12 @@ class MovieSearchCell: UICollectionViewCell {
     }
     
     
-    func configureHierarchy(){
+    private func configureHierarchy(){
         contentView.addSubview(mainImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(gradeLabel)
     }
-    func configureLayout(){
+    private func configureLayout(){
         mainImageView.snp.makeConstraints { make in
             make.edges.equalTo(contentView)
         }
@@ -78,7 +78,7 @@ class MovieSearchCell: UICollectionViewCell {
             make.top.trailing.equalToSuperview().inset(15)
         }
     }
-    func configureUI(){
+    private func configureUI(){
         contentView.backgroundColor = .white
         contentView.clipsToBounds = true
         contentView.layer.cornerRadius = 10

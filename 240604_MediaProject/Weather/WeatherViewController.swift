@@ -10,40 +10,40 @@ import Alamofire
 import Kingfisher
 import CoreLocation
 
-class WeatherViewController: UIViewController {
+final class WeatherViewController: UIViewController {
     
-    let locationManager = CLLocationManager()
+    private let locationManager = CLLocationManager()
 
-    let dateLabel = {
+    private let dateLabel = {
         let label = UILabel()
         label.textColor = .white
         label.font = .systemFont(ofSize: 13)
         return label
     }()
-    let locationLabel = {
+    private let locationLabel = {
         let label = UILabel()
         label.textColor = .white
         label.font = .systemFont(ofSize: 16)
         return label
     }()
-    let shareButton = {
+    private let shareButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
         button.tintColor = .white
         return button
     }()
-    let refreshButton = {
+    private let refreshButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "arrow.clockwise"), for: .normal)
         button.tintColor = .white
         return button
     }()
-    let titleWrapView = {
+    private let titleWrapView = {
        let view = UIView()
         view.backgroundColor = .clear
         return view
     }()
-    let tableView = UITableView()
+    private let tableView = UITableView()
     
     var data:WeatherModel?{
         didSet{
@@ -72,11 +72,11 @@ class WeatherViewController: UIViewController {
         //이걸 여기 쓰는게 맞나...?
     }
     
-    func configureHierarchy(){
+    private func configureHierarchy(){
         [dateLabel, titleWrapView,tableView].forEach { view.addSubview($0) }
         [locationLabel, shareButton, refreshButton].forEach { titleWrapView.addSubview($0) }
     }
-    func configureLayout(){
+    private func configureLayout(){
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(30)
             make.horizontalEdges.equalToSuperview().inset(30)
@@ -101,13 +101,13 @@ class WeatherViewController: UIViewController {
             make.bottom.horizontalEdges.equalToSuperview()
         }
     }
-    func configureUI(){
+    private func configureUI(){
         view.backgroundColor = .orange
         dateLabel.text = getNow()
         
     }
     
-    func configureTableView(){
+    private func configureTableView(){
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(WeatherCell.self, forCellReuseIdentifier: "WeatherCell")
@@ -132,7 +132,7 @@ class WeatherViewController: UIViewController {
     }*/
     
     
-    func getNow() -> String{
+    private func getNow() -> String{
             let myFormatter = DateFormatter()
             myFormatter.dateFormat = "MM월 dd일 HH시 mm분"
             let savedDateString = myFormatter.string(from: Date())
@@ -180,7 +180,7 @@ extension WeatherViewController:UITableViewDataSource, UITableViewDelegate{
         }
     }
     
-    func checkDeviceLocationAuthorization(){
+    private func checkDeviceLocationAuthorization(){
         //아이폰 위치 서비스 켜졌는지 확인
         DispatchQueue.global().async {
             if CLLocationManager.locationServicesEnabled(){
@@ -191,7 +191,7 @@ extension WeatherViewController:UITableViewDataSource, UITableViewDelegate{
         }
     }
     
-    func checkCurrentLocationAuthorization(){
+    private func checkCurrentLocationAuthorization(){
         var status:CLAuthorizationStatus
         if #available(iOS 14.0, *){
             status = locationManager.authorizationStatus

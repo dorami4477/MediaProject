@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WeatherCell: UITableViewCell {
+final class WeatherCell: UITableViewCell {
 
     let resultLabel = {
         let label = PaddingLabel()
@@ -28,10 +28,10 @@ class WeatherCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureHierarchy(){
+    private func configureHierarchy(){
         contentView.addSubview(resultLabel)
     }
-    func configureLayout(){
+    private func configureLayout(){
         resultLabel.snp.makeConstraints { make in
             make.verticalEdges.equalToSuperview().inset(8)
             make.leading.equalToSuperview().offset(30)

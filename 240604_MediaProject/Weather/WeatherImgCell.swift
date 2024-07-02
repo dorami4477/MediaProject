@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WeatherImgCell: UITableViewCell {
+final class WeatherImgCell: UITableViewCell {
 
     let weatherImage = {
         let img = UIImageView()
@@ -28,10 +28,10 @@ class WeatherImgCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureHierarchy(){
+    private func configureHierarchy(){
         contentView.addSubview(weatherImage)
     }
-    func configureLayout(){
+    private func configureLayout(){
         weatherImage.snp.makeConstraints { make in
             make.verticalEdges.equalToSuperview().inset(8)
             make.leading.equalToSuperview().offset(30)

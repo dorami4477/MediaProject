@@ -8,9 +8,9 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
-    let mainIamgeView = {
+    private let mainIamgeView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "노량")
         imageView.contentMode = .scaleAspectFill
@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         return imageView
     }()
     
-    let playButton = {
+    private let playButton = {
         let button = UIButton()
         button.backgroundColor = .white
         button.setImage(UIImage(systemName: "play.fill"), for: .normal)
@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         return button
     }()
     
-    let bookmarkButton = {
+    private let bookmarkButton = {
         let button = UIButton()
         button.backgroundColor = .darkGray
         button.setImage(UIImage(systemName: "plus"), for: .normal)
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         return button
     }()
     
-    lazy var buttonStackView = {
+    private lazy var buttonStackView = {
         let sv = UIStackView()
         sv.axis = .horizontal
         sv.distribution = .fillEqually
@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         return sv
     }()
     
-    let subtitleLabel = {
+    private let subtitleLabel = {
         let label = UILabel()
         label.text = "지금 뜨는 콘텐츠"
         label.textColor = .white
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
         return label
     }()
     
-    let media01ImageView = {
+    private let media01ImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "더퍼스트슬램덩크")
         imageView.contentMode = .scaleAspectFill
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         return imageView
     }()
     
-    let media02ImageView = {
+    private let media02ImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "밀수")
         imageView.contentMode = .scaleAspectFill
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
         return imageView
     }()
     
-    let media03ImageView = {
+    private let media03ImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "범죄도시3")
         imageView.contentMode = .scaleAspectFill
@@ -85,7 +85,7 @@ class ViewController: UIViewController {
         return imageView
     }()
     
-    lazy var mediaStackView = {
+    private lazy var mediaStackView = {
         let sv = UIStackView()
         sv.axis = .horizontal
         sv.distribution = .fillEqually
@@ -101,14 +101,14 @@ class ViewController: UIViewController {
         configureLayout()
     }
 
-    func configureNavigation(){
+    private func configureNavigation(){
         let plus = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(plusButtonTapped))
         title = "고래밥님"
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         navigationItem.rightBarButtonItem = plus
     }
     
-    func configureHierarchy(){
+    private func configureHierarchy(){
         [mainIamgeView, buttonStackView, subtitleLabel, mediaStackView].forEach {
             view.addSubview($0)
         }
@@ -120,7 +120,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func configureLayout(){
+    private func configureLayout(){
         mainIamgeView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.horizontalEdges.equalToSuperview().inset(20)

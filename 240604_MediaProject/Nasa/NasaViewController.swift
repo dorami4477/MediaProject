@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NasaViewController: UIViewController {
+final class NasaViewController: UIViewController {
     
     enum Nasa: String, CaseIterable {
         
@@ -28,20 +28,20 @@ class NasaViewController: UIViewController {
         }
     }
     
-    let requestButton = {
+    private let requestButton = {
         let button = UIButton()
         button.setTitle("이미지 불러오기", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .brown
         return button
     }()
-    let progressLabel = UILabel()
-    let progressView = UIProgressView()
-    let nasaImageView = UIImageView()
+    private let progressLabel = UILabel()
+    private let progressView = UIProgressView()
+    private let nasaImageView = UIImageView()
     
-    var session:URLSession!
-    var total:Double = 0
-    var buffer:Data?{
+    private var session:URLSession!
+    private var total:Double = 0
+    private var buffer:Data?{
         didSet{
             let progress = Double(buffer?.count ?? 0) / total
             progressLabel.text = "\((progress * 100).rounded()) / 100"
@@ -89,12 +89,12 @@ class NasaViewController: UIViewController {
         buffer = Data()
     }
     
-    @objc func requestbuttonTapped(){
+    @objc private func requestbuttonTapped(){
         print("buttonTapped")
         callRequest()
     }
     
-    func callRequest(){
+    private func callRequest(){
         //reset
         buffer = Data()
         nasaImageView.image = UIImage(systemName: "star")

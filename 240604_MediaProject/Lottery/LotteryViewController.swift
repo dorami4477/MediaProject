@@ -23,28 +23,28 @@ struct Lottery:Decodable{
     }
 }
 
-class LotteryViewController: UIViewController {
+final class LotteryViewController: UIViewController {
     
-    let searchTextField = UITextField()
-    let infoLabel = UILabel()
-    let dateLabel = UILabel()
-    let roundLabel = UILabel()
-    let lineView = UIView()
-    let lottoResultStackView = UIStackView()
-    let drawNum01Label = UILabel()
-    let drawNum02Label = UILabel()
-    let drawNum03Label = UILabel()
-    let drawNum04Label = UILabel()
-    let drawNum05Label = UILabel()
-    let drawNum06Label = UILabel()
-    let drawNum07Label = UILabel()
-    let drawNum08Label = UILabel()
-    lazy var drawNumLabels = [drawNum01Label, drawNum02Label, drawNum03Label, drawNum04Label, drawNum05Label, drawNum06Label, drawNum08Label]
+    private let searchTextField = UITextField()
+    private let infoLabel = UILabel()
+    private let dateLabel = UILabel()
+    private let roundLabel = UILabel()
+    private let lineView = UIView()
+    private let lottoResultStackView = UIStackView()
+    private let drawNum01Label = UILabel()
+    private let drawNum02Label = UILabel()
+    private let drawNum03Label = UILabel()
+    private let drawNum04Label = UILabel()
+    private let drawNum05Label = UILabel()
+    private let drawNum06Label = UILabel()
+    private let drawNum07Label = UILabel()
+    private let drawNum08Label = UILabel()
+    private lazy var drawNumLabels = [drawNum01Label, drawNum02Label, drawNum03Label, drawNum04Label, drawNum05Label, drawNum06Label, drawNum08Label]
     
-    let pickerView = UIPickerView()
-    var rounds:[Int] = []
+    private let pickerView = UIPickerView()
+    private var rounds:[Int] = []
     
-    var lottoResult:Lottery?{
+    private var lottoResult:Lottery?{
         didSet{
             guard let lottoResult else { return }
             roundLabel.text = "\(lottoResult.drwNo)회 당첨결과"
@@ -78,12 +78,12 @@ class LotteryViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    func configureHierarchy(){
+    private func configureHierarchy(){
         [searchTextField, infoLabel, dateLabel, lineView, roundLabel, lottoResultStackView, pickerView].forEach { view.addSubview($0)}
         [drawNum01Label, drawNum02Label, drawNum03Label, drawNum04Label, drawNum05Label, drawNum06Label, drawNum07Label, drawNum08Label].forEach{ lottoResultStackView.addArrangedSubview($0)}
     }
     
-    func configureLayout(){
+    private func configureLayout(){
         searchTextField.snp.makeConstraints { make in
             make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.height.equalTo(44)
@@ -115,7 +115,7 @@ class LotteryViewController: UIViewController {
         }
     }
     
-    func configureUI(){
+    private func configureUI(){
         view.backgroundColor = .white
         searchTextField.delegate = self
         searchTextField.layer.borderColor = UIColor.lightGray.cgColor
@@ -148,7 +148,7 @@ class LotteryViewController: UIViewController {
         pickerView.isHidden = true
     }
     
-    func setNumberColor(label:UILabel){
+    private func setNumberColor(label:UILabel){
             switch Int(label.text!)!{
             case 1...10:
                 label.backgroundColor = UIColor(red: 0.86, green: 0.67, blue: 0.01, alpha: 1.00)
@@ -166,7 +166,7 @@ class LotteryViewController: UIViewController {
     }
     
     // MARK: - Network
-    func callRequest(){
+    private func callRequest(){
         let url = "\(APIUrl.lottery)\(searchTextField.text!)"
         AF.request(url).responseDecodable(of: Lottery.self){ response in
             switch response.result{
@@ -178,7 +178,7 @@ class LotteryViewController: UIViewController {
         }
     }
     //회차 리스트
-    func makeTotalRounds(lastRound:Int){
+    private func makeTotalRounds(lastRound:Int){
         for i in 1...lastRound{
             rounds.append(i)
         }

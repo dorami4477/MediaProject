@@ -16,7 +16,7 @@ enum WeatherNetworkError:Error{
 }
 
 
-class WeatherNetwork{
+final class WeatherNetwork{
     static let shared = WeatherNetwork()
     private init (){}
     

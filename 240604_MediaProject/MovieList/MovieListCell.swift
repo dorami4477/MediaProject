@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MovieListCell: UITableViewCell {
+final class MovieListCell: UITableViewCell {
     let rankLabel = UILabel()
     let movieTitleLabel = UILabel()
     let dateLabel = UILabel()
@@ -23,12 +23,12 @@ class MovieListCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureHierarchy(){
+    private func configureHierarchy(){
         contentView.addSubview(rankLabel)
         contentView.addSubview(movieTitleLabel)
         contentView.addSubview(dateLabel)
     }
-    func configureLayout(){
+    private func configureLayout(){
         rankLabel.snp.makeConstraints { make in
             make.top.leading.equalToSuperview().inset(8)
             make.width.equalTo(27)
@@ -41,7 +41,7 @@ class MovieListCell: UITableViewCell {
             make.top.trailing.equalToSuperview().inset(8)
         }
     }
-    func configureUI(){
+    private func configureUI(){
         backgroundColor = .clear
         rankLabel.backgroundColor = .white
         rankLabel.font = .boldSystemFont(ofSize: 16)
